@@ -1,12 +1,18 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+
+@section CustomCssRequired
+{
+    <link href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" rel="stylesheet" />
+}
 @section scripts
 {
     <script src="~/js/bootstrap-datepicker.js"></script>
     <script src="~/js/main.js"></script>
     <script src="~/js/BusList.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(function () {
@@ -76,6 +82,9 @@
 
     </script>
 }
+
+
+<span class="skype-chat rounded" data-text="Chat Now" data-bot-id="1e8bf6d4-9a79-4057-b2b9-055100746637"></span>
 @*<div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
@@ -327,9 +336,27 @@
 </div>
 
 <!-- Search -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Hold on there User</h4>
+            </div>
+            <div class="modal-body">
+                <p>We know you are very eager to try and search for busses using conventional methods ...... But We just want to see how user experience is when he chats with automated robo :).... You can find the Chat box on the below right cornor of our website ... having said that we hope that you will enjoy the experience ... Please do share the feed back with our team </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <div class="search">
-
+   
 
     <!-- Search Contents -->
 
@@ -388,7 +415,11 @@
                                     <option>03</option>
                                 </select>
                             </div>*@
-                        <button id="BusSearch" class="button search_button" onclick="searchBussesButtonClick()">search<span></span><span></span><span></span></button>
+                        
+                        @*<button id="BusSearch" class="button search_button" onclick="searchBussesButtonClick()">search<span></span><span></span><span></span></button>*@
+                        <button type="button" class="button search_button" data-toggle="modal" data-target="#myModal">search</button>
+
+
                     </form>
                 </div>
 
