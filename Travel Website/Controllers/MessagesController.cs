@@ -10,7 +10,7 @@ using Travel_Website.SimpleEchoBot;
 namespace Travel_Website.Controllers
 {
     [BotAuthentication]
-    public class MessagesController : ApiController
+    public class MessagesModifiedController : ApiController
     {
         /// <summary>
         /// POST: api/Messages
