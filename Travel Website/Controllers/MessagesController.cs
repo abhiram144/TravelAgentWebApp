@@ -17,6 +17,7 @@ namespace Travel_Website.Controllers
         /// receive a message from a user and send replies
         /// </summary>
         /// <param name="activity"></param>
+        /// //
         [ResponseType(typeof(void))]
         public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
