@@ -1,57 +1,35 @@
-﻿namespace LuisBot
+using System.Threading.Tasks;
+using System.Web.Http;
+
+using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.Dialogs;
+using System.Web.Http.Description;
+using System.Net.Http;
+using Microsoft.Bot.Sample.SimpleEchoBot;
+
+namespace Travel_Website.Controllers
 {
-    using System;
-    using System.Diagnostics;
-    using System.Net;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using System.Web.Configuration;
-    using System.Web.Http;
-    using Dialogs;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Bot.Connector;
-    using Services;
-    using System.Web.Http.Cors;
-
-
-    //[BotAuthentication]
-    [EnableCors("*","*","*")]
+    [BotAuthentication]
     public class MessagesController : ApiController
     {
-        private static readonly bool IsSpellCorrectionEnabled = bool.Parse(WebConfigurationManager.AppSettings["IsSpellCorrectionEnabled"]);
-
-        private readonly BingSpellCheckService spellService = new BingSpellCheckService();
-
         /// <summary>
         /// POST: api/Messages
-        /// Receive a message from a user and reply to it
+        /// receive a message from a user and send replies
         /// </summary>
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        /// <param name="activity"></param>
+        [ResponseType(typeof(void))]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
-            if (activity.Type == ActivityTypes.Message)
+            // check if activity is of type message
+            if (activity != null && activity.GetActivityType() == ActivityTypes.Message)
             {
-                if (IsSpellCorrectionEnabled)
-                {
-                    try
-                    {
-                        activity.Text = await this.spellService.GetCorrectedTextAsync(activity.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        Trace.TraceError(ex.ToString());
-                    }
-                }
-                //Conversation.SendAsync(activity, () => new RootLuisDialog()).Wait();
-
-                await Conversation.SendAsync(activity, () => new RootLuisDialog());
+                await Conversation.SendAsync(activity, () => new EchoDialog());
             }
             else
             {
-                this.HandleSystemMessage(activity);
+                HandleSystemMessage(activity);
             }
-
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            return response;
+            return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
 
         private Activity HandleSystemMessage(Activity message)
