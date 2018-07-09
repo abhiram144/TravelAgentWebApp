@@ -5,7 +5,7 @@ using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Net.Http;
-using Microsoft.Bot.Sample.SimpleEchoBot;
+using Travel_Website.SimpleEchoBot;
 
 namespace Travel_Website.Controllers
 {
