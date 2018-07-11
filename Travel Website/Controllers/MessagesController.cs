@@ -6,6 +6,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Net.Http;
 using Travel_Website.SimpleEchoBot;
+using LuisBot.Dialogs;
 
 namespace Travel_Website.Controllers
 {

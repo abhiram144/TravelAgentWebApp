@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    string microsoftAppId = System.Configuration.ConfigurationManager.AppSettings["MicrosoftAppId"] as string;
 }
 
 @section CustomCssRequired
@@ -83,7 +84,7 @@
     </script>
 }
 
-<span class="skype-chat rounded" data-text="Chat Now" data-bot-id="1e8bf6d4-9a79-4057-b2b9-055100746637"></span>
+<span class="skype-chat rounded" data-text="Chat Now" data-bot-id="@microsoftAppId"></span>
 
 @*<span class="skype-button bubble " data-bot-id="f12f384d-f295-4c4c-b29d-dc6ad4f94061"></span>*@
 

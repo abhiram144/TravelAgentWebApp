@@ -201,6 +201,7 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Data Models\BusSearch.cs" />
     <Compile Include="Dialogs\EchoDialog.cs" />
+    <Compile Include="Dialogs\RootLuisDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
