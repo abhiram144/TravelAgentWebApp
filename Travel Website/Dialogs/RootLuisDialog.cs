@@ -12,7 +12,8 @@
     using Microsoft.Bot.Connector;
 
 
-    [LuisModel("16816e8d-34d5-4eb4-b2ae-c1c1590d98ba", "79c7508adea147e882f8246f1441a83d")] //For Hotel Reservation
+    [LuisModel("16816e8d-34d5-4eb4-b2ae-c1c1590d98ba", "d8c7c7db62134d9db0359a9845fb6d8c")] 
+    //[LuisModel("4bd9e4fa-8d7d-4b52-b968-43a2dd995cdd", "ff0cc11d49a14688844b74873bb9a97c")]
     [Serializable]
     public class RootLuisDialog : LuisDialog<object>
     {
@@ -24,7 +25,8 @@
 
         //private IList<string> titleOptions = new List<string> { "“Very stylish, great stay, great staff”", "“good hotel awful meals”", "“Need more attention to little things”", "“Lovely small hotel ideally situated to explore the area.”", "“Positive surprise”", "“Beautiful suite and resort”" };
 
-        
+
+       
         [LuisIntent("")]
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
