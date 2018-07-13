@@ -195,7 +195,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\BusinessConstants.cs" />
     <Compile Include="Controllers\DataController.cs" />
-    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Data Helpers\GoibiboBusSearchHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Common\Enums.cs" />
